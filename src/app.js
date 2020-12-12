@@ -22,11 +22,11 @@ app.get("/mario", async (req, res) => {
 });
 
 app.get("/mario/:id", async (req, res) => {
-  const id = req.params.id;
   try {
+    const id = req.params.id;
     const data = await marioModel.findById(id);
     res.status(200).send(data);
-  } catch (err) {
+  } catch (error) {
     res.status(400).send({ message: error.message });
   }
 });
